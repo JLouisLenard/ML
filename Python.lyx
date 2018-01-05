@@ -1,0 +1,1066 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Python
+\end_layout
+
+\begin_layout Author
+JLL
+\end_layout
+
+\begin_layout Date
+01/02/18
+\end_layout
+
+\begin_layout Section
+Generalities
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Python is a multi-paradigm programming language.
+ Object-oriented programming and structured programming are fully supported,
+ and many of its features support functional programming and aspect-oriented
+ programming (including by metaprogramming[41] and metaobjects (magic methods)).[
+42] Many other paradigms are supported via extensions, including design
+ by contract[43][44] and logic programming.[45]
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Python uses dynamic typing, and a combination of reference counting and
+ a cycle-detecting garbage collector for memory management.
+ It also features dynamic name resolution (late binding), which binds method
+ and variable names during program execution.
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Section
+Syntax and semantics
+\end_layout
+
+\begin_layout Standard
+See for eg https://en.wikipedia.org/wiki/Python_syntax_and_semantics
+\end_layout
+
+\begin_layout Subsection
+Indentation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+In so-called "free-format" languages — that use the block structure derived
+ from ALGOL — blocks of code are set off with braces ({ }) or keywords.
+ In most coding conventions for these languages, programmers conventionally
+ indent the code within a block, to visually set it apart from the surrounding
+ code (prettyprinting).
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Python uses whitespace to delimit control flow blocks (following the off-side
+ rule).
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Subsection
+Base types
+\end_layout
+
+\begin_layout Itemize
+integers
+\end_layout
+
+\begin_layout Itemize
+floats
+\end_layout
+
+\begin_layout Itemize
+booleans
+\end_layout
+
+\begin_layout Itemize
+strings
+\end_layout
+
+\begin_layout Subsection
+Collection types
+\end_layout
+
+\begin_layout Standard
+Containers, data structures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+One of the very useful aspects of Python is the concept of collection (or
+ container) types.
+ In general a collection is an object that contains other objects in a way
+ that is easily referenced or indexed.
+ Collections come in two basic forms: 
+\series bold
+sequences
+\series default
+ and 
+\series bold
+mappings
+\series default
+.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The ordered sequential types are 
+\series bold
+lists
+\series default
+ (dynamic arrays), 
+\series bold
+tuples
+\series default
+, and 
+\series bold
+strings
+\series default
+.
+ All sequences are indexed positionally (0 through length − 1) and all but
+ strings can contain any type of object, including multiple types in the
+ same sequence.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Both strings and tuples are immutable, making them perfect candidates for
+ dictionary keys (see below).
+ Lists, on the other hand, are mutable; elements can be inserted, deleted,
+ modified, appended, or sorted in-place.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Mappings, on the other hand, are unordered types implemented in the form
+ of dictionaries which "map" a set of immutable keys to corresponding elements
+ (much like a mathematical function)...
+ The keys in a dictionary must be of an immutable Python type, such as an
+ integer or a string, because under the hood they are implemented via a
+ hash function.
+ 
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Object
+\end_layout
+
+\begin_layout Standard
+One may view an object as a record -- See Ocaml for example.
+ Objects have states and methods acting on abjects changes the state, e.g.
+ setters and getters whaich are akin to writing and reading.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+In Python, everything is an object, even classes.
+ Classes, as objects, have a class, which is known as their metaclass.
+ Python also supports multiple inheritance and mixins.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The language supports extensive introspection of types and classes.
+ Types can be read and compared—types are instances of type.
+ The attributes of an object can be extracted as a dictionary.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Literals
+\end_layout
+
+\begin_layout Subsubsection
+strings
+\end_layout
+
+\begin_layout Standard
+Either single quote or double quotes.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+interpolation can be done in various ways: with the % string-format operator,
+ using the "format" method or with "f-strings" (since Python 3.6[6]).
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Standard
+print("I just printed %s pages to the printer %s" % (num, printer)) 
+\end_layout
+
+\begin_layout Standard
+print("I just printed {num} pages to the printer {printer}".format(num=num,
+ printer=printer)) 
+\end_layout
+
+\begin_layout Subsubsection
+Numbers
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Numeric literals in Python are of the normal sort, e.g.
+ 0, -1, 3.4, 3.5e-8.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Lists
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Lists (class list) are mutable sequences of items of arbitrary types,
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a_list = [1, 2, 3, "a dog"] 
+\end_layout
+
+\begin_layout Subsubsection
+Tuples
+\end_layout
+
+\begin_layout Standard
+a_tuple = 1, 2, 3, "four" 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Tuples (class tuple) are immutable sequences of items of arbitrary types.
+ 
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Sets
+\end_layout
+
+\begin_layout Standard
+Sets (class set) are mutable containers of items of arbitrary types, with
+ no duplicate.
+\end_layout
+
+\begin_layout Standard
+some_set = {0, (), False} 
+\end_layout
+
+\begin_layout Subsubsection
+Dictionaries
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Dictionaries (class dict) are mutable mappings tying keys and corresponding
+ values.
+ Python has special syntax to create dictionaries ({key: value})
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Empty constructors
+\end_layout
+
+\begin_layout Standard
+Normal Object creation: start with an empty object, add content
+\end_layout
+
+\begin_layout Standard
+[], list(),()-- empty tuple, set(), {} --empty dictionary.
+\end_layout
+
+\begin_layout Subsection
+Operators
+\end_layout
+
+\begin_layout Subsubsection
+Arithmetic
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Python includes the +, -, *, /, % (modulus), and ** (exponentiation) operators,
+ with their usual mathematical precedence.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Comparison
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The basic comparison operators such as ==, <, >=, and so forth are used
+ on all manner of values.
+ Numbers, strings, sequences, and mappings can all be compared.
+ 
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Subsubsection
+Logical operators
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+In all versions of Python, boolean operators treat zero values or empty
+ values such as "", 0, None, 0.0, [], and {} as false, while in general treating
+ non-empty, non-zero values as true.
+ 
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Assignment
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The assignment statement (token '=', the equals sign).
+ This operates differently than in traditional imperative programming languages,
+ and this fundamental mechanism (including the nature of Python's version
+ of variables) illuminates many other features of the language.
+ Assignment in C, e.g., x = 2, translates to "typed variable name x receives
+ a copy of numeric value 2".
+ The (right-hand) value is copied into an allocated storage location for
+ which the (left-hand) variable name is the symbolic address.
+ The memory allocated to the variable is large enough (potentially quite
+ large) for the declared type.
+ In the simplest case of Python assignment, using the same example, x =
+ 2, translates to "(generic) name x receives a reference to a separate,
+ dynamically allocated object of numeric (int) type of value 2." This is
+ termed binding the name to the object.
+ Since the name's storage location doesn't contain the indicated value,
+ it is improper to call it a variable.
+ Names may be subsequently rebound at any time to objects of greatly varying
+ types, including strings, procedures, complex objects with data and methods,
+ etc.
+ Successive assignments of a common value to multiple names, e.g., x = 2;
+ y = 2; z = 2 result in allocating storage to (at most) three names and
+ one numeric object, to which all three names are bound.
+ Since a name is a generic reference holder it is unreasonable to associate
+ a fixed data type with it.
+ However at a given time a name will be bound to some object, which will
+ have a type; thus there is dynamic typing.
+ 
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Standard
+JLL: In Python x= object and x designates a reference to an object.
+ Objects are presumed to come with an ID which is their memory location.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+a name is a generic reference holder
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Python, we work with a zoo of objects and these objects have internal
+ names ( their memory location hence session dependent) as well as conventional
+ names ( the usual expression e.g.
+ 2 for object that plays the role of integer 2).
+\end_layout
+
+\begin_layout Subsection
+Variable scope
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Variable scope in Python is implicitly determined by the scope in which
+ one assigns a value to the variable, unless scope is explicitly declared
+ with global or nonlocal.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Functional programming in Python
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Python's design offers some support for functional programming in the Lisp
+ tradition.
+ It has filter(), map(), and reduce() functions; list comprehensions, dictionari
+es, and sets; and generator expressions.[46] The standard library has two
+ modules (itertools and functools) that implement functional tools borrowed
+ from Haskell and Standard ML.[47]
+\begin_inset Quotes erd
+\end_inset
+
+ --W
+\end_layout
+
+\begin_layout Subsection
+Comprehensions
+\end_layout
+
+\begin_layout Standard
+L = [mapping-expression for element in source-list if filter-expression]
+ 
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+powers_of_two = [2**n for n in range(1, 6)] 
+\end_layout
+
+\begin_layout Standard
+no = [1,2,3,4,5,6,7,8,9,10] 
+\end_layout
+
+\begin_layout Standard
+no = [x for x in no if (x%2==0)] - return the even numbers in no
+\end_layout
+
+\begin_layout Subsection
+First-class functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+In Python, functions are first-class objects that can be created and passed
+ around dynamically.
+ Python's limited support for anonymous functions is the lambda construct.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+f = lambda x: x**2 
+\end_layout
+
+\begin_layout Standard
+f(5), (lambda x: x**2)(5)
+\end_layout
+
+\begin_layout Section
+Pandas 
+\end_layout
+
+\begin_layout Standard
+Pandas offers ways to represent and work with tables, 2d constructs familiar
+ from database theory and practice.
+ A dataframe has a list of columns names and an index that provides names
+ for the rows.
+ A single columns is a series.
+ In particular if the index is a list of instant in time, we have a time
+ series.
+ 
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Standard
+See https://pandas.pydata.org and the tutorials.
+ e.g., https://pandas.pydata.org/pandas-docs/stable/dsintro.html dataquest --
+ Using pandas with large data In Jupyter, help(panda), help(pd), pd?
+\end_layout
+
+\begin_layout Standard
+- "Python has long been great for data munging and preparation, but less
+ so for data analysis and modeling.
+ pandas helps fill this gap, enabling you to carry out your entire data
+ analysis workflow in Python without having to switch to a more domain specific
+ language like R.
+ Combined with the excellent IPython toolkit and other libraries, the environmen
+t for doing data analysis in Python excels in performance, productivity,
+ and the ability to collaborate." - "A fast and efficient DataFrame object
+ for data manipulation with integrated indexing;" - "The two primary data
+ structures of pandas, Series (1-dimensional) and DataFrame (2-dimensional),
+ handle the vast majority of typical use cases in finance, statistics, social
+ science, and many areas of engineering.
+ " - dataframe: a table with named columns and named rows (possibly implicitely,
+e.g., row numbers).
+ Alternatively a list/record(the columns are named) of series.
+ - The entries do not have to be numerical: int, float, but also timedate,
+ categorical,...,object.
+\end_layout
+
+\begin_layout Standard
+Official terminology 
+\end_layout
+
+\begin_layout Standard
+- what we call a row: cross section 
+\end_layout
+
+\begin_layout Standard
+- what we call a column: 
+\end_layout
+
+\begin_layout Standard
+- axis: either the first or the second axis.
+ Dataframe are seen as 2-axis objects.
+ 
+\end_layout
+
+\begin_layout Standard
+- index: one column is special, it is used as name for rows.
+ It is displayed first and has no column name in the output frame.
+ 
+\end_layout
+
+\begin_layout Standard
+- label: name of column or of row 
+\end_layout
+
+\begin_layout Standard
+- position: integer position corresponding to the associated array, df.values
+ 
+\end_layout
+
+\begin_layout Standard
+- .at, .loc, : expect a label, a name 
+\end_layout
+
+\begin_layout Standard
+- .iat, .iloc and .ix.: expect an (absolute) position (start at 0)
+\end_layout
+
+\begin_layout Subsection
+Initialization
+\end_layout
+
+\begin_layout Standard
+Specify index list ( a particular column), column names list, and entries.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+s = pd.Series(np.random.rand(1000), index=range(1000))
+\end_layout
+
+\begin_layout Plain Layout
+
+index = pd.data_range(13/06/2026,periods= 1000)
+\end_layout
+
+\begin_layout Plain Layout
+
+df = pd.DataFrame(np.zeros(1000, 3)), index=index, columns= ['a','b','c'])
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reading from a csv file
+\end_layout
+
+\begin_layout Standard
+df = pd.read_csv(
+\begin_inset Quotes eld
+\end_inset
+
+....
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+Working with dataframes
+\end_layout
+
+\begin_layout Standard
+df.values, df.
+ columns, df.
+ index, df.head(), df.describe(), 
+\end_layout
+
+\begin_layout Subsection
+Selecting rows, colums, entries
+\end_layout
+
+\begin_layout Itemize
+.at, .loc : expect a label, a name 
+\end_layout
+
+\begin_layout Itemize
+.iat, .iloc : expect an (absolute) position (start at 0)
+\end_layout
+
+\begin_layout Standard
+Note: .loc[], .loc[], .ix[] are inclusive in the range of value selected
+\end_layout
+
+\begin_layout Standard
+df.iloc[0:2, : ] or df[:2] selects the first two rows
+\end_layout
+
+\begin_layout Standard
+df.loc[0:2, ] selects the first three rows
+\end_layout
+
+\begin_layout Subsection
+Filtering
+\end_layout
+
+\begin_layout Standard
+df [ (df.col_name1 < 7 ) & (df.col_name2 == 0) ]
+\end_layout
+
+\begin_layout Section
+Enhancing performance 
+\end_layout
+
+\begin_layout Standard
+See http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html
+\end_layout
+
+\begin_layout Subsection
+Cython (Writing C extensions for pandas)¶
+\end_layout
+
+\begin_layout Subsection
+Using Numba
+\end_layout
+
+\begin_layout Standard
+Simplest option apparently
+\end_layout
+
+\begin_layout Subsection
+Expression Evaluation via eval()
+\end_layout
+
+\begin_layout Subsection
+The DataFrame.eval method
+\end_layout
+
+\begin_layout Subsection
+Using DataFrame.eval() and DataFrame.query()
+\end_layout
+
+\begin_layout Section
+Plotting 
+\end_layout
+
+\begin_layout Standard
+We use matplotlib.
+ In Jupyter
+\end_layout
+
+\begin_layout Standard
+%matplotlib inline
+\end_layout
+
+\begin_layout Standard
+import matplotlib.pyplot as plt
+\end_layout
+
+\begin_layout Subsection
+To initiate a figure
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fig = plt.figure(figsize=( 5, 2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fig, axes = plt.subplots(5,2, figsize=(5,5))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Directly, pyplot style:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+plt.plot(xs, ys, color='green', linestyle='dashed', marker='o', markerfacecolor='
+blue', markersize=12)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Figures and axes properties
+\end_layout
+
+\begin_layout Standard
+fig.subtitle('title')
+\end_layout
+
+\begin_layout Standard
+To adjust positions of subplots check references ( cheat sheet for eg)
+\end_layout
+
+\begin_layout Standard
+ax.set_xlabel (...)
+\end_layout
+
+\begin_layout Standard
+ax.set_xlim(1,2)
+\end_layout
+
+\begin_layout Standard
+ax.set (xlabel= ..., xlim= ..., ...)
+\end_layout
+
+\begin_layout Standard
+ax.text(x,y,string, fontsize= ...)
+\end_layout
+
+\begin_layout Subsection
+Plotting 
+\end_layout
+
+\begin_layout Subsubsection
+Plotting a line
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ax.plot(x,y,...)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Scatter plot
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ax.scatter(x,y,...)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Colormesh
+\end_layout
+
+\begin_layout Subsubsection
+Contour
+\end_layout
+
+\begin_layout Subsubsection
+Histograms
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+n, bins, patch = ax.hist(x,50)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+n, bins, patches = plt.hist(x, 50, normed=1, facecolor='g', alpha=0.75)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hist2d(data[0], data[1])
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Vector fields
+\end_layout
+
+\begin_layout Subsubsection
+Show image
+\end_layout
+
+\begin_layout Subsubsection
+Spectrograms
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Python_(programming_language)
+\end_layout
+
+\end_body
+\end_document
